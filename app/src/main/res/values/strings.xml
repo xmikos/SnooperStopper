@@ -2,12 +2,8 @@
 <resources>
 
     <string name="app_name">SnooperStopper</string>
-    <string name="switch_admin">Enable device admin</string>
     <string name="switch_admin_on">Device admin is enabled</string>
     <string name="switch_admin_off">Device admin is disabled</string>
-    <string name="password_manager_button">Change encryption password</string>
-    <string name="max_attempts_edit">Max. failed unlock attempts</string>
-
     <string name="startup_message">You can change your device encryption password here.\nMake sure
         you remember your new password or you will NOT be able to use your device.\nUse at
         your own risk!</string>
@@ -29,10 +25,9 @@
     <string name="no_su_apk">No superuser package found, exiting.</string>
     <string name="device_not_encrypted">This device is not encrypted, exiting.</string>
     <string name="new_passwd_dialog_title">Password changed</string>
-    <string name="new_passwd_dialog_message">Successfully changed password.\n\nThe device encryption password is now:\n%s</string>
+    <string name="new_passwd_dialog_message">Successfully changed password.\nThe device encryption password is now:\n\n%s</string>
     <string name="current_password_incorrect">The current encryption password is incorrect.</string>
     <string name="password_change_error">Password change error</string>
-
     <string name="pref_device_admin_title">Device administration</string>
     <string name="pref_title_device_admin_enabled">Enable device admin</string>
     <string name="pref_summary_device_admin_enabled">Enable device admin so we can monitor failed unlock attempts</string>
@@ -41,7 +36,9 @@
     <string name="pref_encryption_title">Device encryption</string>
     <string name="pref_summary_password_manager">Change encryption password independently on lock screen password</string>
     <string name="pref_title_password_manager">Change encryption password</string>
-    <string name="password_changed_dialog_title">Change encryption password</string>
-    <string name="password_changed_dialog_message">Your device encryption password has been changed to your new lock screen password. Do you want to change it to some stronger password?</string>
+    <string name="current_password">Current password:</string>
+    <string name="new_password">New password:</string>
+    <string name="confirm_new_password">Confirm new password:</string>
+    <string name="change_password">Change password</string>
 
 </resources>

@@ -134,7 +134,7 @@ public class SuShell {
         return output;
     }
 
-    public static final String getCommandOutput(String command)
+    public static String getCommandOutput(String command)
             throws IOException {
 
         StringBuilder output = new StringBuilder();
