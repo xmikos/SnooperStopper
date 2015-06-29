@@ -244,4 +244,36 @@ public class SuShell {
 
         return false;
     }
+
+    public static boolean reboot() {
+        //List<String> output = runWithSu("am start -a android.intent.action.REBOOT");
+        //if (output.isEmpty()) {
+        //    return false;
+        //}
+
+        //for (String line : output) {
+        //    if (line.contains("Error") || line.contains("SecurityException")) {
+        //        return false;
+        //    }
+        //}
+
+        List<String> output = runWithSu("reboot");
+        return true;
+    }
+
+    public static boolean shutdown() {
+        //List<String> output = runWithSu("am start -a android.intent.action.ACTION_REQUEST_SHUTDOWN");
+        //if (output.isEmpty()) {
+        //    return false;
+        //}
+
+        //for (String line : output) {
+        //    if (line.contains("Error") || line.contains("SecurityException")) {
+        //        return false;
+        //    }
+        //}
+
+        List<String> output = runWithSu("reboot -p");
+        return true;
+    }
 }

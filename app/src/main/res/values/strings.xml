@@ -9,7 +9,7 @@
     <string name="max_attempts_edit">Max. failed unlock attempts</string>
 
     <string name="startup_message">You can change your device encryption password here.\nMake sure
-        you rememberyour new password or you will NOT be able to use your device.\nUse at
+        you remember your new password or you will NOT be able to use your device.\nUse at
         your own risk!</string>
     <string name="title_activity_main">@string/app_name</string>
     <string name="confirmation_dialog_title">Confirm password change</string>
