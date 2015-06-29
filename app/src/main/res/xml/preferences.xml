@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_device_admin_title"
+        android:key="pref_key_device_admin">
+        <SwitchPreference
+            android:key="pref_key_device_admin_enabled"
+            android:summary="@string/pref_summary_device_admin_enabled"
+            android:title="@string/pref_title_device_admin_enabled"
+            android:defaultValue="false" />
+        <EditTextPreference
+            android:key="pref_key_max_attempts_limit"
+            android:dependency="pref_key_device_admin_enabled"
+            android:summary="@string/pref_summary_max_attempts_limit"
+            android:title="@string/pref_title_max_attempts_limit"
+            android:defaultValue="3"
+            android:inputType="number" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/pref_encryption_title"
+        android:key="pref_key_encryption">
+        <Preference
+            android:key="pref_key_password_manager"
+            android:summary="@string/pref_summary_password_manager"
+            android:title="@string/pref_title_password_manager">
+            <intent
+                android:targetPackage="cz.eutopia.snooperstopper"
+                android:targetClass="cz.eutopia.snooperstopper.PasswordManagerActivity" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>
