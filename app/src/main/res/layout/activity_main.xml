@@ -1,20 +1,22 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    android:paddingBottom="0dp"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <fragment
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
         android:paddingTop="0dp"
         android:paddingBottom="0dp"
         android:name="cz.eutopia.snooperstopper.SettingsFragment"
         android:id="@+id/frag_settings" />
-</LinearLayout>
+
+</RelativeLayout>

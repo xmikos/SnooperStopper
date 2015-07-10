@@ -8,13 +8,14 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class PasswordManagerActivity extends AppCompatActivity implements OnClickListener {
@@ -37,18 +38,25 @@ public class PasswordManagerActivity extends AppCompatActivity implements OnClic
     private String passwordType;
     private boolean checkCurrentPassword = true;
 
+    ProgressBar progressBar;
+
     // hacky...
     private static boolean selinuxPolicyPatched = !IS_LOLLIPOP;
 
     //@SuppressWarnings("deprecation")
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passwordmanager);
 
-        // Show icon in ActionBar
+        // Use Toolbar instead of ActionBar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Prepare ProgressBar
+        progressBar = (ProgressBar) findViewById(R.id.progress_spinner);
+
+        // Show app icon in Toolbar
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -92,7 +100,7 @@ public class PasswordManagerActivity extends AppCompatActivity implements OnClic
 
             @Override
             protected void onPreExecute() {
-                setProgressBarIndeterminateVisibility(true);
+                progressBar.setVisibility(View.VISIBLE);
                 changePasswordButon.setEnabled(false);
             }
 
@@ -125,7 +133,7 @@ public class PasswordManagerActivity extends AppCompatActivity implements OnClic
 
             @Override
             protected void onPostExecute(Boolean result) {
-                setProgressBarIndeterminateVisibility(false);
+                progressBar.setVisibility(View.GONE);
 
                 if (!result) {
                     Toast.makeText(PasswordManagerActivity.this, R.string.cannot_get_su,
@@ -224,7 +232,7 @@ public class PasswordManagerActivity extends AppCompatActivity implements OnClic
 
         @Override
         protected void onPreExecute() {
-            activity.setProgressBarIndeterminateVisibility(true);
+            activity.progressBar.setVisibility(View.VISIBLE);
             activity.tooggleButton(false);
         }
 
@@ -264,7 +272,7 @@ public class PasswordManagerActivity extends AppCompatActivity implements OnClic
                 return;
             }
 
-            activity.setProgressBarIndeterminateVisibility(false);
+            activity.progressBar.setVisibility(View.GONE);
             activity.tooggleButton(true);
 
             switch (result) {

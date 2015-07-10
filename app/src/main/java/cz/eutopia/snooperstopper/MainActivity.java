@@ -12,8 +12,10 @@ import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Window;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     DevicePolicyManager devicePolicyManager;
     ComponentName snooperStopperDeviceAdmin;
     SwitchPreference switchAdmin;
+    ProgressBar progressBar;
 
     private Handler updateSwitchAdminHandler = new Handler();
     private Runnable updateSwitchAdminRunnable = new Runnable() {
@@ -33,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Show icon in ActionBar
+        // Use Toolbar instead of ActionBar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Prepare ProgressBar
+        progressBar = (ProgressBar) findViewById(R.id.progress_spinner);
+
+        // Show app icon in Toolbar
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -61,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void onPreExecute() {
-                setProgressBarIndeterminateVisibility(true);
+                progressBar.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -77,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Boolean result) {
-                setProgressBarIndeterminateVisibility(false);
+                progressBar.setVisibility(View.GONE);
 
                 if (!result) {
                     Toast.makeText(MainActivity.this, R.string.cannot_get_su,
