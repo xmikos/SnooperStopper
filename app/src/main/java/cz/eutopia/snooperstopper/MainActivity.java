@@ -5,6 +5,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -12,6 +13,8 @@ import android.preference.SwitchPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     static final String TAG = MainActivity.class.getSimpleName();
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,6 +51,41 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Device Policy Manager service and our receiver class
         devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         snooperStopperDeviceAdmin = new ComponentName(this, SnooperStopperDeviceAdminReceiver.class);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        new AsyncTask<Void, Void, Boolean>() {
+
+            @Override
+            protected void onPreExecute() {
+                setProgressBarIndeterminateVisibility(true);
+            }
+
+            @Override
+            protected Boolean doInBackground(Void... params) {
+                try {
+                    boolean canGainSu = SuShell.canGainSu(getApplicationContext());
+                    return canGainSu;
+                } catch (Exception e) {
+                    Log.e(TAG, "Error: " + e.getMessage(), e);
+                    return false;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                setProgressBarIndeterminateVisibility(false);
+
+                if (!result) {
+                    Toast.makeText(MainActivity.this, R.string.cannot_get_su,
+                                   Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }
+        }.execute();
     }
 
     Preference.OnPreferenceChangeListener switchAdminOnChangeListener = new Preference.OnPreferenceChangeListener() {
