@@ -5,13 +5,13 @@
     tools:context=".MainActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        android:id="@+id/toolbar_with_shadow"
+        layout="@layout/toolbar_with_shadow" />
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/toolbar_with_shadow"
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
         android:paddingTop="0dp"
