@@ -16,7 +16,9 @@ to enter your strong device encryption password again.
 Where to get it:
 ----------------
 
-Download it from [Eutopia.cz F-Droid Repository](https://fdroid.eutopia.cz/)
+[![Get it on Google Play](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=cz.eutopia.snooperstopper)
+
+Or download it from [Eutopia.cz F-Droid Repository](https://fdroid.eutopia.cz/).
 
 
 Why is it needed:
