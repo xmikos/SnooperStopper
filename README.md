@@ -33,8 +33,9 @@ requesting different passwords for encryption and screen lock, but it seems to b
 ignored by Google (it is there from 2012 and recently marked _Obsolete_ by Google).
 
 If you use [CyanogenMod](http://www.cyanogenmod.org/) (which I highly recommend!),
-you don't need SnooperStopper, because CyanogenMod already has a built-in system UI
-to change encryption password.
+you don't need SnooperStopper for changing encryption password, because CyanogenMod already
+has a built-in system UI to change encryption password. But you still need SnooperStopper
+for monitoring failed unlock attempts.
 
 
 How to use it:
