@@ -1,0 +1,3 @@
+[submodule "app/src/main/external/setools-android"]
+	path = app/src/main/external/setools-android
+	url = https://github.com/xmikos/setools-android.git
