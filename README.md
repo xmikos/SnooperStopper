@@ -59,6 +59,9 @@ Requirements:
 - enabled device encryption (_Settings_ => _Security_ => _Encrypt phone_ )
 - root (Android doesn't allow apps to change device encryption password or
   reboot your device without root access)
+- on Android >= 5.0 you need [sepolicy-inject](https://github.com/xmikos/setools-android/releases) for
+  patching SELinux policy (or `supolicy`, which is part of SuperSU, but I highly discourage using SuperSU,
+  because it is closed source and there can be potentially hidden backdoor)
 
 
 Credits:
