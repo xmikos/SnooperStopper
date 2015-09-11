@@ -110,7 +110,7 @@ public class PasswordManagerActivity extends AppCompatActivity implements OnClic
                     boolean canGainSu = SuShell.canGainSu(getApplicationContext());
 
                     if (!selinuxPolicyPatched) {
-                        selinuxPolicyPatched = SuShell.patchLollipopPolicy();
+                        selinuxPolicyPatched = SuShell.patchLollipopPolicy(getApplicationContext());
                     }
 
                     boolean cyanogenmod = SuShell.isCyanogenmod();

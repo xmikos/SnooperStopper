@@ -191,35 +191,25 @@ public class SuShell {
         return false;
     }
 
-    public static boolean patchLollipopPolicy() {
+    public static boolean patchLollipopPolicy(Context ctx) {
+        String cmd;
         if (findInPath("sepolicy-inject")) {
-            String cmd = "sepolicy-inject -s vdc -t init -c fifo_file -p read,write,getattr -l";
-            List<String> output = runWithSu(cmd);
-            if (output.isEmpty()) {
-                return false;
-            }
+            cmd = "sepolicy-inject";
+        } else {
+            cmd = ctx.getApplicationInfo().nativeLibraryDir + "/libsepolicy-inject.so";
+        }
+        cmd += " -s vdc -t init -c fifo_file -p read,write,getattr -l";
+        Log.d(TAG, "Patching SELinux policy: " + cmd);
 
-            for (String line : output) {
-                if (line.contains("Success")) {
-                    return true;
-                }
-            }
-
+        List<String> output = runWithSu(cmd);
+        if (output.isEmpty()) {
             return false;
-        } else if (findInPath("supolicy")) {
-            String cmd = "supolicy --live 'allow vdc init fifo_file {read write getattr}'";
-            List<String> output = runWithSu(cmd);
-            if (output.isEmpty()) {
-                return false;
-            }
+        }
 
-            for (String line : output) {
-                if (line.contains("Success")) {
-                    return true;
-                }
+        for (String line : output) {
+            if (line.contains("Success")) {
+                return true;
             }
-
-            return false;
         }
 
         return false;
