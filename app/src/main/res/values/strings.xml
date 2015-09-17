@@ -25,7 +25,7 @@
     <string name="no_su_apk">No superuser package found, exiting.</string>
     <string name="device_not_encrypted">This device is not encrypted, exiting.</string>
     <string name="new_passwd_dialog_title">Password changed</string>
-    <string name="new_passwd_dialog_message">Successfully changed password.\nThe device encryption password is now:\n\n%s</string>
+    <string name="new_passwd_dialog_message">Successfully changed device encryption password.</string>
     <string name="current_password_incorrect">The current encryption password is incorrect.</string>
     <string name="password_change_error">Password change error</string>
     <string name="pref_device_admin_title">Device administration</string>
