@@ -45,6 +45,7 @@ public class CryptfsCommands {
     private static final Pattern PIN_PATTERN = Pattern.compile("\\d+");
 
     public static final String PWTYPE_DEFAULT = "default";
+    public static final String DEFAULT_PASSWORD = "default_password";
 
     public CryptfsCommands() {
     }
@@ -161,6 +162,7 @@ public class CryptfsCommands {
 
     public static boolean changeCryptfsPasswordLollipop(String newPassword,
             String oldPassword) {
+        oldPassword = (oldPassword == null || "".equals(oldPassword)) ? DEFAULT_PASSWORD : oldPassword;
         String encodedNewPassword = IS_M ? newPassword : toHexAscii(newPassword);
         String encodedOldPassword = IS_M ? oldPassword : toHexAscii(oldPassword);
         boolean isCyanogenmod13 = IS_M && SuShell.isCyanogenmod();
