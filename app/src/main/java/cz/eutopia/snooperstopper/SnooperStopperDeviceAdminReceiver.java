@@ -36,10 +36,10 @@ public class SnooperStopperDeviceAdminReceiver extends DeviceAdminReceiver {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(context);
         int pref_key_max_attempts_limit = Integer.parseInt(SP.getString("pref_key_max_attempts_limit", "3"));
         if (failedPasswordAttempts >= pref_key_max_attempts_limit) {
-            Log.d(TAG, "TOO MANY FAILED UNLOCK ATTEMPTS!!! REBOOTING!");
+            Log.d(TAG, "TOO MANY FAILED UNLOCK ATTEMPTS!!! SHUTTING DOWN!");
             failedPasswordAttempts = 0;
-            if (!SuShell.reboot()) {
-                Log.d(TAG, "COULDN'T REBOOT!");
+            if (!SuShell.shutdown()) {
+                Log.d(TAG, "COULDN'T SHUT DOWN!");
             }
         }
     }
