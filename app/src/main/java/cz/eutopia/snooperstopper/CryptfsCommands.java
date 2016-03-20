@@ -30,6 +30,10 @@ public class CryptfsCommands {
             + " cryptfs changepw pin %s";
     private static final String CRYPTFS_CHANGEPW_PASSWORD_CMD = VDC_CMD_PATH
             + " cryptfs changepw password %s";
+    private static final String CRYPTFS_CHANGEPW_PIN_CM_CMD = VDC_CMD_PATH
+            + " cryptfs changepw pin %s %s";
+    private static final String CRYPTFS_CHANGEPW_PASSWORD_CM_CMD = VDC_CMD_PATH
+            + " cryptfs changepw password %s %s";
 
     private static final String CRYPTFS_GETPWTYPE_CMD = VDC_CMD_PATH
             + " cryptfs getpwtype";
@@ -158,13 +162,18 @@ public class CryptfsCommands {
     public static boolean changeCryptfsPasswordLollipop(String newPassword,
             String oldPassword) {
         String encodedNewPassword = IS_M ? newPassword : toHexAscii(newPassword);
+        String encodedOldPassword = IS_M ? oldPassword : toHexAscii(oldPassword);
+        boolean isCyanogenmod13 = IS_M && SuShell.isCyanogenmod();
 
-        String command = CRYPTFS_CHANGEPW_PASSWORD_CMD;
+        String command = isCyanogenmod13 ? CRYPTFS_CHANGEPW_PASSWORD_CM_CMD
+                                         : CRYPTFS_CHANGEPW_PASSWORD_CMD;
         if (PIN_PATTERN.matcher(newPassword).matches()) {
-            command = CRYPTFS_CHANGEPW_PIN_CMD;
+            command = isCyanogenmod13 ? CRYPTFS_CHANGEPW_PIN_CM_CMD
+                                      : CRYPTFS_CHANGEPW_PIN_CMD;
         }
         List<String> response = SuShell.run("su",
-                String.format(command, encodedNewPassword));
+                isCyanogenmod13 ? String.format(command, encodedOldPassword, encodedNewPassword)
+                                : String.format(command, encodedNewPassword));
 
         boolean changeResult = checkVdcResponse(response);
         boolean verifyResult = checkCryptfsPasswordLollipop(newPassword);
@@ -188,12 +197,17 @@ public class CryptfsCommands {
 
     private static boolean changePasswordNoVerifyLollipop(String newPassword) {
         String encodedPassword = IS_M ? newPassword : toHexAscii(newPassword);
-        String command = CRYPTFS_CHANGEPW_PASSWORD_CMD;
+        boolean isCyanogenmod13 = IS_M && SuShell.isCyanogenmod();
+
+        String command = isCyanogenmod13 ? CRYPTFS_CHANGEPW_PASSWORD_CM_CMD
+                                         : CRYPTFS_CHANGEPW_PASSWORD_CMD;
         if (PIN_PATTERN.matcher(newPassword).matches()) {
-            command = CRYPTFS_CHANGEPW_PIN_CMD;
+            command = isCyanogenmod13 ? CRYPTFS_CHANGEPW_PIN_CM_CMD
+                                      : CRYPTFS_CHANGEPW_PIN_CMD;
         }
         List<String> response = SuShell.run("su",
-                String.format(command, encodedPassword));
+                isCyanogenmod13 ? String.format(command, encodedPassword, encodedPassword)
+                                : String.format(command, encodedPassword));
 
         return checkVdcResponse(response);
     }
