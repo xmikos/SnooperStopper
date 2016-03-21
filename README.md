@@ -16,7 +16,7 @@ to enter your strong device encryption password again.
 Where to get it:
 ----------------
 
-[![Get it on Google Play](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=cz.eutopia.snooperstopper)
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png)](https://play.google.com/store/apps/details?id=cz.eutopia.snooperstopper)
 
 Or download it from [Eutopia.cz F-Droid Repository](https://fdroid.eutopia.cz/).
 
@@ -31,11 +31,6 @@ as possible, but nobody wants to enter long password all the time just to unlock
 There is Android issue [#29468](https://code.google.com/p/android/issues/detail?id=29468)
 requesting different passwords for encryption and screen lock, but it seems to be
 ignored by Google (it is there from 2012 and recently marked _Obsolete_ by Google).
-
-If you use [CyanogenMod](http://www.cyanogenmod.org/) (which I highly recommend!),
-you don't need SnooperStopper for changing encryption password, because CyanogenMod already
-has a built-in system UI to change encryption password. But you still need SnooperStopper
-for monitoring failed unlock attempts.
 
 
 How to use it:
