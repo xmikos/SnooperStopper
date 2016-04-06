@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SnooperStopper</string>
+    <string name="switch_admin_on">A administração do dispositivo está ativada</string>
+    <string name="switch_admin_off">A administração do dispositivo está desativada</string>
+    <string name="startup_message">Você pode alterar a senha de criptografia de seu dispositivo aqui.\nCertifique-se de que você se lembre de sua nova senha ou você não conseguirá utilizar seu dispositivo.\nUse por sua conta e risco!</string>
+    <string name="title_activity_main" translatable="false">@string/app_name</string>
+    <string name="confirmation_dialog_title">Confirmar alteração de senha</string>
+    <string name="confirmation_dialog_message">Você tem certeza que deseja alterar a senha de criptografia de seu dispositivo?\nVocê precisará entrar com a nova senha na próxima inicialização, certifique-se de que irá lembrá-la!</string>
+    <string name="invalid_password">Senha inválida</string>
+    <string name="failed_to_change_password">Falhou ao alterar a senha de criptografia do dispositivo.\nUse o comando \'vdc cryptfs changepw &lt;password&gt;\' em um shell root para definir manualmente a senha ANTES de reinicializar.</string>
+    <string name="successfuly_changed_password">Senha de criptografia do dispositivo alterada com sucesso.</string>
+    <string name="password_mismatch">As senhas não coincidem.</string>
+    <string name="confirmation_passwd_required">Confirmação da senha é requerida.</string>
+    <string name="new_passwd_required">Nova senha é requerida.</string>
+    <string name="current_passwd_required">A atual senha é requerida.</string>
+    <string name="cannot_get_su">Não pode obter acesso ao super usuário, saindo.</string>
+    <string name="no_su_apk">Não foi possível encontrar um pacote de super usuário, saindo.</string>
+    <string name="device_not_encrypted">Este dispositivo não está criptografado, saindo.</string>
+    <string name="new_passwd_dialog_title">Senha alterada</string>
+    <string name="new_passwd_dialog_message">Senha de criptografia do dispositivo alterada com sucesso.</string>
+    <string name="current_password_incorrect">A atual senha de criptografia está incorreta.</string>
+    <string name="password_change_error">Erro na alteração da senha</string>
+    <string name="pref_device_admin_title">Administração do dispositivo</string>
+    <string name="pref_title_device_admin_enabled">Ativar administração do dispositivo</string>
+    <string name="pref_summary_device_admin_enabled">Ativar a administração do dispositivo para que possamos monitorar tentativas falhas de desbloquear o dispositivo</string>
+    <string name="pref_title_max_attempts_limit">Máximo de tentativas de desbloqueio</string>
+    <string name="pref_summary_max_attempts_limit">Número máximo de tentativas falhas de desbloqueio antes de desligar</string>
+    <string name="pref_encryption_title">Encriptação do dispositivo</string>
+    <string name="pref_summary_password_manager">Altera a senha de criptografia indepententemente da senha da tela de bloqueio</string>
+    <string name="pref_title_password_manager">Alterar a senha de criptografia</string>
+    <string name="current_password">Senha atual:</string>
+    <string name="new_password">Nova senha:</string>
+    <string name="confirm_new_password">Confirmar nova senha:</string>
+    <string name="change_password">Alterar senha</string>
+
+
+    <!-- 'Akira Nóis ;) -->
+
+</resources>
