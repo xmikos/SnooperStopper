@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SnooperStopper</string>
+    <string name="switch_admin_on">Geräteadministrator aktiviert</string>
+    <string name="switch_admin_off">Geräteadministrator ist deaktiviert</string>
+    <string name="startup_message">Du kannst das Verschlüsselungspasswort hier ändern.\n
+ Stelle sicher, dass du das Passwort nicht vergisst oder dein Gerät nicht mehr verwenden können.\n
+ Benutze auf eigene Gefahr!</string>
+    <string name="confirmation_dialog_title">Bestätige die Änderung des Passworts</string>
+    <string name="confirmation_dialog_message">Bist du dir sicher dass du das Verschlüsselungspasswort ändern willst?\n
+ Du wirst das neue Passwort beim nächsten Start eingeben müssen. Vegiss das Passwort nicht!</string>
+    <string name="invalid_password">Ungültiges Passwort</string>
+    <string name="failed_to_change_password">Ändern des Verschlüsselungspasswortes fehlgeschlagen.\n
+ Benutze \"vdc cryptfs changepw &lt;password&gt;\" in einer root Kommandozeile um das Passwort VOR DEM Neustart manuell zu setzen.</string>
+    <string name="successfuly_changed_password">Erfolgreich das Verschlüsselungspasswort geändert.</string>
+    <string name="password_mismatch">Passwörter stimmen nicht überein.</string>
+    <string name="confirmation_passwd_required">Bestätigungspasswort erforderlich.</string>
+    <string name="new_passwd_required">Neues Passwort erforderlich.</string>
+    <string name="current_passwd_required">Derzeitiges Passwort erforderlich.</string>
+    <string name="cannot_get_su">Kein SuperUser Zugriff... Beende</string>
+    <string name="no_su_apk">Keine SuperUser-Anwendung gefunden... Beende</string>
+    <string name="device_not_encrypted">Das Gerät ist nicht verschlüsselt... Beende.</string>
+    <string name="new_passwd_dialog_title">Passwort geändert</string>
+    <string name="new_passwd_dialog_message">Das Verschlüsselungspasswort wurde erfolgreich geändert.</string>
+    <string name="current_password_incorrect">Das derzeitige Verschlüsselungspasswort ist falsch.</string>
+    <string name="password_change_error">Passwortänderungsfehler</string>
+    <string name="pref_device_admin_title">Geräteadministration</string>
+    <string name="pref_title_device_admin_enabled">Geräteadministrator aktivieren</string>
+    <string name="pref_summary_device_admin_enabled">Schalte den Geräteadministrator an, damit wir die fehlgeschlagen Entsperrversuche überwachen können</string>
+    <string name="pref_title_max_attempts_limit">Max. Anzahl Entsperrversuche</string>
+    <string name="pref_summary_max_attempts_limit">Max. Anzahl der fehlgeschlagen Entsperrversuche vor dem herunterfahren</string>
+    <string name="pref_encryption_title">Geräteverschlüsselung</string>
+    <string name="pref_summary_password_manager">Ändern des Verschlüsselungspasswortes unabhängig zum Entsperrpasswortes</string>
+    <string name="pref_title_password_manager">Ändern des Verschlüsselungspasswortes</string>
+    <string name="current_password">Derzeitiges Passwort:</string>
+    <string name="new_password">Neues Passwort:</string>
+    <string name="confirm_new_password">Bestätige das neue Passwort:</string>
+    <string name="change_password">Passwort ändern</string>
+
+</resources>
